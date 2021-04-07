@@ -4,6 +4,7 @@ Thanks a lot for being interested in contributing to this open-source project!
 **TABLE OF CONTENTS**
 - [Notes](#notes)
 - [Ways to contribute](#ways-to-contribute)
+- [Forks](#forks)
 - [I can't figure it out!](#i-cant-figure-it-out)
 
 # Notes
