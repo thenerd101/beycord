@@ -25,6 +25,7 @@
     "discord.js": "^12.5.3",
     "eris": "^0.15.0",
     "eris-reactions": "^0.1.4",
-    "eris-sharder": "^1.10.0"
+    "eris-sharder": "^1.10.0",
+    "jimp": "^0.16.1"
   }
 }
