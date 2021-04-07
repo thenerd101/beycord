@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/CorruptX/beycord/issues"
   },
-  "homepage": "https://github.com/CorruptX/beycord#readme"
+  "homepage": "https://github.com/CorruptX/beycord#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
 }
