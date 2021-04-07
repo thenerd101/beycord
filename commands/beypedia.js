@@ -1,5 +1,5 @@
-/*const Discord = require("discord.js");
-const Fuse = require("fuse.js");
+const Discord = require("discord.js");
+//const Fuse = require("fuse.js");
 
 module.exports.run = async (client, message, args, prefix, player, db) => {
   let stats = await db.collection("users").findOne({_id: message.author.id});
@@ -303,4 +303,3 @@ module.exports.help = {
   desc: "Flip the legendary Beypedia and get information about Beys.",
   usage: "beypedia - Show the first page of Beypedia.\nbeypedia <page number> - Show a page of Beypedia.\nbeypedia <bey name> - Check a Bey's base information."
 }
-*/

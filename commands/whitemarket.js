@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const ReactionHandler = require("eris-reactions");
-const Fuse = require("fuse.js");
+//const Fuse = require("fuse.js");
 
 module.exports.run = async (client, message, args, prefix, player, db) => {
   let stats = await db.collection("users").findOne({ _id: message.author.id });

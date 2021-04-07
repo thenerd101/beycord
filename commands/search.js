@@ -1,4 +1,4 @@
-const Fuse = require("fuse.js");
+//const Fuse = require("fuse.js");
 
 module.exports.run = async (client, message, args, prefix, player, db) => {
 	const beys = [];

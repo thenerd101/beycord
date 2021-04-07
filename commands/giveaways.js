@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const ReactionHandler = require("eris-reactions");
-const Fuse = require("fuse.js");
+//const Fuse = require("fuse.js");
 
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
