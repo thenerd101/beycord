@@ -3,7 +3,7 @@ const { prefix } = require('./config.json');
 const fs = require('fs');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const Eris = require("eris-additions")(require("eris"))
-const client = new Eris(token);
+const client = new Eris(TOKEN_DJS);
 client.commands = new Discord.Collection();
 
 for (const file of commandFiles) {
