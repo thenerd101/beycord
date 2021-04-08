@@ -3,5 +3,6 @@ module.exports = {
 	description: 'Ching!',
 	run(message, args) {
 		message.channel.send('chong but im not racist');
+		//hkjhkjh
 	},
 };
