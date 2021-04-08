@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
 const { prefix } = require('./config.json');
-const client = new Eris(token);
 const fs = require('fs');
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const Eris = require("eris-additions")(require("eris"))
+const client = new Eris(token);
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
