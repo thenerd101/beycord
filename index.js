@@ -16,7 +16,7 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
 	const command = args.shift().toLowerCase();
 	if (!client.commands.has(command)) return;
 	try {
-		client.commands.get(command).run(message, args);
+		client.commands.get(command).run(client, message, args, prefix, {}, db);
 	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
