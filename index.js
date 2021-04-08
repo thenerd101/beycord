@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const { prefix } = require('./config.json');
-const client = new Eris(token);
+const client = new Eris(TOKEN_DJS);
 const fs = require('fs');
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -23,7 +23,6 @@ client.on('messageCreate', (msg) => {
 	}
 });
 //Login
-var client = new Eris("TOKEN_DJS");
 client.on('ready', () => {
 	console.log('Beycord is online!')
 })
