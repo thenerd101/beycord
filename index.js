@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const { prefix } = require('./config.json');
-const client = new Eris(TOKEN_DJS);
+const client = new Eris(token);
 const fs = require('fs');
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -10,7 +10,6 @@ for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name || command.help.name, command);
 }
-/*
 //Eris Bot Command Handler
 var db = {}
 client.on('messageCreate', (msg) => {
@@ -28,4 +27,3 @@ client.on('ready', () => {
 	console.log('Beycord is online!')
 })
 client.connect()
-*/
