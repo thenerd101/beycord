@@ -29,4 +29,4 @@ client.on('ready', () => {
     console.log('Beycord is now online!')
 })
 
-client.login(process.env.BEYCORD_TOKEN)
+client.login(process.env.TOKEN_DJS)
