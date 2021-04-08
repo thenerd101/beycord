@@ -12,7 +12,8 @@ for (const file of commandFiles) {
 }
 
 //Eris Bot Command Handler
-bot.on("messageCreate", (msg) => {
+
+/*bot.on("messageCreate", (msg) => {
     if(msg.content.startsWith(prefix) || message.author.bot) {
 		const args = message.content.slice(prefix.length).trim().split(/ +/);
 		const command = args.shift().toLowerCase();
@@ -24,7 +25,7 @@ bot.on("messageCreate", (msg) => {
 		message.reply('there was an error trying to execute that command!');
 	}
     }
-});
+}); */
 
 //login
 var bot = new Eris("BOT_TOKEN");
