@@ -22,9 +22,10 @@ client.on('messageCreate', (msg) => {
 		message.reply('Something happened while trying to run this command :/');
 	}
 });
-*/
+
 //Login
 client.on('ready', () => {
 	console.log('Beycord is online!')
 })
 client.connect()
+*/
