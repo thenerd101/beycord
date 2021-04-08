@@ -13,7 +13,7 @@ for (const file of commandFiles) {
 //Eris Bot Command Handler
 var db = {}
 client.on('messageCreate', (msg) => {
-	if (msg.content === "!ping") {
+	if (msg.content.startsWith(prefix)) {
 		try {
 			client.commands.get(command).run(client, message, args, prefix, {}, db);
 		} catch (error) {
