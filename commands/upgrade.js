@@ -1,4 +1,4 @@
-/*const Discord = require("discord.js");
+const Discord = require("discord.js");
 const jimp = require("jimp");
 const fs = require("fs");
 const gifencoder = require("gifencoder");
@@ -195,7 +195,7 @@ module.exports.run = async (client, message, args, prefix, player, db) => {
             */
 
             //ABOVE IS THE FAILED GEN 5 GIF CODE!! Fix it if you somehow figure it out lol.
-/*
+
             let gen5image;
             try{gen5image = fs.readFileSync(`/path/to/tempimages/${message.author.id}gen5.png`)}catch(err){message.channel.createMessage(`*Upgrade failed!* Please try again.`);db.collection("users").updateOne({_id: message.author.id}, {$set: {stars: stats.stars - 1}});gen5image = null;};
             if(gen5image){
@@ -228,4 +228,4 @@ module.exports.help = {
     usage: "upgrade <bey index>",
     aliases: ["genup", "generationup"],
     cooldown: 10
-} */
+} 

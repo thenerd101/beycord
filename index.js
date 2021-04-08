@@ -28,4 +28,5 @@ client.on('message', message => {
 client.on('ready', () => {
     console.log('Beycord is now online!')
 })
+
 client.login(process.env.BEYCORD_TOKEN)

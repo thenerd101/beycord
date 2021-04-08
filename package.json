@@ -26,6 +26,7 @@
     "eris": "^0.15.0",
     "eris-reactions": "^0.1.4",
     "eris-sharder": "^1.10.0",
+    "fuse.js": "^6.4.6",
     "jimp": "^0.16.1"
   }
 }
