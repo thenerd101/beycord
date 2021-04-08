@@ -10,6 +10,8 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 //Command Handler
+var db = {}
+
 client.on('message', message => {
 if (!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
