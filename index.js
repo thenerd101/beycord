@@ -21,6 +21,10 @@ let db = {};
 client.on('messageCreate', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	
+	message.reply = content => {
+		client.createMessage(message.channel.id, `<@${message.author.id}>, ${content}`);
+	}
+	
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 	
