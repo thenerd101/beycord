@@ -28,7 +28,7 @@ client.on('messageCreate', message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 	
-	if(client.commands.has(command){
+	if(client.commands.has(command)) {
 		try {
 	   		let cmd = client.commands.get(command);
 			cmd.run(client, message, args, prefix, {}, db);
