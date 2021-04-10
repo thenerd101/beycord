@@ -29,6 +29,7 @@
     "eris-sharder": "^1.10.0",
     "fuse.js": "^6.4.6",
     "gifencoder": "^2.0.1",
+    "init": "^0.1.2",
     "jimp": "^0.16.1"
   }
 }
