@@ -3,8 +3,9 @@ const Discord = require('discord.js');
 const Eris = require("eris-additions")(require("eris"));
 const fs = require('fs');
 const { prefix } = require('./config.json');
+const config = require('./config.json')
 
-const client = new Eris(process.env.TOKEN_DJS);
+const client = new Eris(config.token);
 client.commands = new (Discord.Collection || Map)();
 client.beys = new (Discord.Collection || Map)();
 client.parts = new (Discord.Collection || Map)();
