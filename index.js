@@ -1,4 +1,3 @@
-//git pull request fix
 const Discord = require('discord.js');
 const Eris = require("eris-additions")(require("eris"));
 const fs = require('fs');
@@ -11,6 +10,14 @@ client.beys = new (Discord.Collection || Map)();
 client.parts = new (Discord.Collection || Map)();
 client.items = new (Discord.Collection || Map)();
 
+const { MongoClient } = require("mongodb");
+const mongo = new MongoClient(process.env.MongoURL);
+
+mongo.connect((err) => {
+	if(err) throw err;
+	console.log("Connection to MongoDB database established successfully!");
+});
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -18,9 +25,9 @@ for (const file of commandFiles) {
 	client.commands.set(command.name || command.help.name, command);
 }
 
-let db = {};
+const db = mongo.db("main");
 
-client.on('messageCreate', message => {
+client.on('messageCreate', async (message) => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	
 	message.reply = content => {
