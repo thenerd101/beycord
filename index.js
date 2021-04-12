@@ -11,7 +11,7 @@ client.parts = new (Discord.Collection || Map)();
 client.items = new (Discord.Collection || Map)();
 
 const { MongoClient } = require("mongodb");
-const mongo = new MongoClient(process.env.MongoURL);
+const mongo = new MongoClient(process.env.MONGOURL);
 
 mongo.connect((err) => {
 	if(err) throw err;
