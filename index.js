@@ -1,3 +1,4 @@
+//
 const Discord = require('discord.js');
 const Eris = require("eris-additions")(require("eris"));
 const fs = require('fs');
