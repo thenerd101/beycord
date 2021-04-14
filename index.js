@@ -1,24 +1,28 @@
-//
+//Assigning Variables / Require
 const Discord = require('discord.js');
 const Eris = require("eris-additions")(require("eris"));
 const fs = require('fs');
-const { prefix } = require('./config.json');
-const config = require('./config.json')
+const { prefix } = require('dotenv').config();
+require('dotenv').config();
 
-const client = new Eris(config.token);
+//Eris CLient
+const client = new Eris(process.env.TOKEN);
 client.commands = new (Discord.Collection || Map)();
 client.beys = new (Discord.Collection || Map)();
 client.parts = new (Discord.Collection || Map)();
 client.items = new (Discord.Collection || Map)();
 
+//MongoDB Variables
 const { MongoClient } = require("mongodb");
 const mongo = new MongoClient(process.env.MONGOURL);
 
+//Mongo Connect
 mongo.connect((err) => {
 	if(err) throw err;
 	console.log("Connection to MongoDB database established successfully!");
 });
 
+//commandFiles
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -28,6 +32,7 @@ for (const file of commandFiles) {
 
 const db = mongo.db("main");
 
+//async create message
 client.on('messageCreate', async (message) => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	
@@ -49,6 +54,7 @@ client.on('messageCreate', async (message) => {
 	}
 });
 
+//Connect client
 client.on('ready', () => {
 	console.log('Beycord is online!');
 });

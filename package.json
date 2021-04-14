@@ -23,6 +23,7 @@
   "homepage": "https://github.com/CorruptX/beycord#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
+    "dotenv": "^8.2.0",
     "eris": "^0.15.0",
     "eris-additions": "^1.4.1",
     "eris-reactions": "^0.1.4",
