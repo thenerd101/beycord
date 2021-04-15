@@ -29,6 +29,14 @@ for (const file of commandFiles) {
     client.commands.set(command.name || command.help.name, command);
 }
 
+//Beys
+const beyFiles = fs.readdirSync('./beys').filter(file => file.endsWith(".js") && file !== ".gitignore");
+for (const file of beyFiles) {
+    const bey = require(`./beys/${file}`);
+    const beyc = new bey("1","1");
+    client.beys.set(beyc.name, bey);
+}
+
 //Items
 const itemFiles = fs.readdirSync('./items').filter(file => file.endsWith(".js") && file !== "Booster.js" && file !== "Part.js" && file !== "Beyblade.js" && file !== "Quest.js");
 for (const file of itemFiles) {
@@ -65,4 +73,3 @@ client.on('ready', () => {
 });
 
 client.connect();
-console.log(process.env.PREFIX, typeof process.env.PREFIX);

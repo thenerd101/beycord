@@ -1,5 +1,5 @@
-require('dotenv').config();
-const uri = process.env.MONGODB;
+require("dotenv").config({path: "path/to/.env"});
+const uri = process.env.DBPASS;
 const MongoClient = require("mongodb").MongoClient;
 const mongo = new MongoClient(uri, {
   useNewUrlParser: true,
