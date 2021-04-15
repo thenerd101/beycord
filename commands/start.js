@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args, prefix, player, db) => {
   message.channel.createMessage({embed:startembed});
   const filter = m => m.author.id === message.author.id;
   let collected = await message.channel.awaitMessages(filter, {maxMatches: 1, time: 300000})
-  .catch(err => message.channel.send(err.stack));
+  .catch(err => console.error(err));
     if(collected[0].content.toLowerCase() !== "victory valkyrie" && collected[0].content.toLowerCase() !== "rising ragnaruk" && collected[0].content.toLowerCase() !== "king kerbeus" && collected[0].content.toLowerCase() !== "storm spriggan") message.channel.send("Invalid arguments. Please check your spelling and try again.");
     if(collected[0].content.toLowerCase() === "victory valkyrie"){
       let starter = new (client.beys.get("Victory Valkyrie"))(message.author.id);
