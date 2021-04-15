@@ -5,13 +5,15 @@ const mongo = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
-let bname = "Beyblade"
+let bname = "Beyblade";
+
+let ids = {};
 
 mongo.connect(err => {
   console.log("MongoDB connected for Beyblade.js");
+  ids = mongo.db("main").collection("ids");
 });
 
-const ids = mongo.db("main").collection("ids")
 const id = ids.find({});
 const datas = {};
 Promise.all([id]).then(data => {
@@ -26,7 +28,7 @@ Promise.all([id]).then(data => {
 });
 
 setInterval(() => {
-  mongo.db("main").collection("ids").updateOne({_id: bname}, {$set: {latest: datas[bname].latest}});
+  ids.updateOne({_id: bname}, {$set: {latest: datas[bname].latest}});
 }, 600000);
 
 class Beyblade {
