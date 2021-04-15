@@ -7,29 +7,32 @@ const mongo = new MongoClient(uri, {
 });
 let bname = "Beyblade";
 
-let ids = {};
-
-mongo.connect(err => {
-  console.log("MongoDB connected for Beyblade.js");
-  ids = mongo.db("main").collection("ids");
-});
-
-const id = ids.find({});
-const datas = {};
-Promise.all([id]).then(data => {
-  let beys = data[0];
-  beys.forEach(bey => {
-    datas[bey._id] = {
-      latest: bey.latest,
-      name: bey._id
-    }
+async function connect(){
+  await mongo.connect(err => {
+    console.log("MongoDB connected for Beyblade.js");
   });
-  console.log("Updated data!");
-});
 
-setInterval(() => {
-  ids.updateOne({_id: bname}, {$set: {latest: datas[bname].latest}});
-}, 600000);
+  let ids = mongo.db("main").collection("ids");
+
+  const id = ids.find({});
+  const datas = {};
+  Promise.all([id]).then(data => {
+    let beys = data[0];
+    beys.forEach(bey => {
+      datas[bey._id] = {
+        latest: bey.latest,
+        name: bey._id
+      }
+    });
+    console.log("Updated data!");
+  });
+
+  setInterval(() => {
+    ids.updateOne({_id: bname}, {$set: {latest: datas[bname].latest}});
+  }, 600000);
+}
+
+connect();
 
 class Beyblade {
   constructor(name, type, image, firstOwner, id){
