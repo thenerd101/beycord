@@ -23,10 +23,17 @@ mongo.connect((err) => {
 });
 
 //commandFiles
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name || command.help.name, command);
+}
+
+//Items
+const itemFiles = fs.readdirSync('./items').filter(file => file.endsWith(".js") && file !== "Booster.js" && file !== "Part.js" && file !== "Beyblade.js" && file !== "Quest.js");
+for (const file of itemFiles) {
+    const item = require(`./items/${file}`);
+    client.items.set(item.name || item.help.name, item);
 }
 
 //async create message
