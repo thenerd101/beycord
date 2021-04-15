@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const Eris = require("eris-additions")(require("eris"));
 const fs = require('fs');
-const { prefix } = require('dotenv').config();
+const prefix = (process.env.PREFIX);
 require('dotenv').config();
 
 //Eris CLient

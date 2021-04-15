@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args, prefix, player, db, cmdt) => {
   let now = new Date();
-  client.createMessage(message.channel.id, ':ping_pong:**PONG!**')
+  client.createMessage(message.channel.id, ':ping_pong: **PONG!**')
   .then(async msg => {
     let dbnow = new Date();
     let stats = await db.collection("users").findOne({_id: message.author.id});
@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args, prefix, player, db, cmdt) => 
       .setTimestamp()
       .setColor("#7f7fff");
     }
-    msg.edit({content: ":ping_pong:***PONG!***", embed: pembed});
+    msg.edit({content: ":ping_pong: ***PONG!***", embed: pembed});
   });
 }
 
