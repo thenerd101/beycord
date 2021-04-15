@@ -7,6 +7,8 @@ const mongo = new MongoClient(uri, {
 });
 let bname = "Beyblade";
 
+let datas = {}
+
 async function connect(){
   await mongo.connect(err => {
     console.log("MongoDB connected for Beyblade.js");
@@ -15,7 +17,6 @@ async function connect(){
   let ids = mongo.db("main").collection("ids");
 
   const id = ids.find({});
-  const datas = {};
   Promise.all([id]).then(data => {
     let beys = data[0];
     beys.forEach(bey => {
