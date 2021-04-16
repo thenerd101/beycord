@@ -37,6 +37,7 @@ for (const file of beyFiles) {
     client.beys.set(beyc.name, bey);
 }
 
+
 //Items
 const itemFiles = fs.readdirSync('./items').filter(file => file.endsWith(".js") && file !== "Booster.js" && file !== "Part.js" && file !== "Beyblade.js" && file !== "Quest.js");
 for (const file of itemFiles) {
