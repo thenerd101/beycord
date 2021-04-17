@@ -26,7 +26,7 @@ mongo.connect((err) => {
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-    client.commands.set(command.name || command.help.name, command);
+//    client.commands.set(command.name || command.help.name, command);
 }
 
 //Beys
@@ -63,7 +63,7 @@ client.on('messageCreate', async (message) => {
             cmd.run(client, message, args, prefix, {}, db);
         } catch (error) {
             console.error(error);
-            message.reply('Something happened while trying to run this command :/');
+            message.reply(`something happened while trying to run this command. Maybe Corrupt is just an idiot?`);
         }
     }
 });
