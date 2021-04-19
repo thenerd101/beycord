@@ -26,16 +26,16 @@ mongo.connect((err) => {
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-//    client.commands.set(command.name || command.help.name, command);
+    client.commands.set(command.name || command.help.name, command);
 }
 
 //Beys
-/*const beyFiles = fs.readdirSync('./beys').filter(file => file.endsWith(".js") && file !== ".gitignore");
+const beyFiles = fs.readdirSync('./beys').filter(file => file.endsWith(".js") && file !== ".gitignore");
 for (const file of beyFiles) {
     const bey = require(`./beys/${file}`);
     const beyc = new bey("1","1");
     client.beys.set(beyc.name, bey);
-}*/
+}
 
 
 //Items
