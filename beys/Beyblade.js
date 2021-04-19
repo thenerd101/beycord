@@ -1,39 +1,33 @@
-require('dotenv').config();
-const uri = process.env.MONGODB;
+require("dotenv").config({path: "path/to/.env"});
+const uri = process.env.MONGOURL;
 const MongoClient = require("mongodb").MongoClient;
 const mongo = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
-let bname = "Beyblade";
+let bname = "Beyblade"
 
-let datas = {}
+mongo.connect(err => {
+  console.log("MongoDB connected for Beyblade.js");
+});
 
-async function connect(){
-  await mongo.connect(err => {
-    console.log("MongoDB connected for Beyblade.js");
+const ids = mongo.db("main").collection("ids")
+const id = ids.find({});
+const datas = {};
+Promise.all([id]).then(data => {
+  let beys = data[0];
+  beys.forEach(bey => {
+    datas[bey._id] = {
+      latest: bey.latest,
+      name: bey._id
+    }
   });
+  console.log("Updated data!");
+});
 
-  let ids = mongo.db("main").collection("ids");
-
-  const id = ids.find({});
-  Promise.all([id]).then(data => {
-    let beys = data[0];
-    beys.forEach(bey => {
-      datas[bey._id] = {
-        latest: bey.latest,
-        name: bey._id
-      }
-    });
-    console.log("Updated data!");
-  });
-
-  setInterval(() => {
-    ids.updateOne({_id: bname}, {$set: {latest: datas[bname].latest}});
-  }, 600000);
-}
-
-connect();
+setInterval(() => {
+  mongo.db("main").collection("ids").updateOne({_id: bname}, {$set: {latest: datas[bname].latest}});
+}, 600000);
 
 class Beyblade {
   constructor(name, type, image, firstOwner, id){
