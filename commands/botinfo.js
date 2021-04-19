@@ -8,7 +8,6 @@ module.exports.run = async (client, message, args, prefix, player, db) => {
   .addFields(
     { name: 'Author of Beycord', value: 'SunSOG/CorruptX', inline:true},
     { name: 'Version of Beycord', value: 'Beycord V2.0', inline:true},
-    { name: 'Server Type', value: 'N/A (as of 4/19/21)', inline:true},
     { name: 'Server Type', value: 'N/A (as of 4/19/21)', inline:true}
 )
   .setTimestamp()
